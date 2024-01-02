@@ -1,11 +1,16 @@
 import React from 'react';
 import styled from 'styled-components/macro';
+import { jpgToSrcSet } from '../../util';
 
 const Hero = () => {
   return (
     <Wrapper>
-      <HeroImage src="/images/hero-img.jpg" />
-      <Swoop src="/swoop.svg" />
+      <picture > 
+        <source type="image/avif" srcSet={jpgToSrcSet("/images/hero-img.jpg", "avif")} />
+        <source type="image/jpg" srcSet={jpgToSrcSet("/images/hero-img.jpg", "jpg")}/>
+        <HeroImage src="/images/hero-img.jpg" alt="Hero -- Portrait of a cat"/>
+      </picture>
+      <Swoop src="/swoop.svg" alt=""/>
     </Wrapper>
   );
 };
